@@ -1,0 +1,92 @@
+/**
+ * Content eligible for the one-time MongoDB seed.
+ * Clearly marked sample projects, timelines, testimonials and showcase copy from
+ * the original draft are intentionally excluded from this list.
+ */
+export const initialPortfolioContent = {
+  site: {
+    name: 'Shubham Soni',
+    brand: 'shubham.dev',
+    role: 'Creative Developer / Frontend Developer',
+    location: 'Based in India',
+    tagline: 'Building immersive digital experiences through code, design, animation, and 3D.',
+    availability: 'Available for select projects',
+    heroWords: 'DESIGN. CODE. MOTION.',
+    heroTitle: 'SHUBHAM',
+    primaryCta: 'Explore My Work',
+    primaryCtaUrl: '#projects',
+    secondaryCta: "Let's Connect",
+    secondaryCtaUrl: '#contact',
+    email: '',
+    responseNote: 'Share a few details and I will get back to you as soon as I can.',
+    contactHeading: "Let's connect.",
+    contactDescription: 'Have a project, an idea or just want to say hello? Tell me a bit about it.',
+    exploreLabel: 'Explore selected projects',
+    seoTitle: 'Shubham Soni — Creative Developer',
+    seoDescription: 'Shubham Soni — Creative Developer building immersive digital experiences.',
+    ogTitle: 'Shubham Soni — Creative Developer',
+    ogDescription: 'Shubham Soni — Creative Developer building immersive digital experiences.',
+    ogImage: '',
+  },
+  navLinks: [
+    { id: 'about', label: 'About', order: 1, visible: true },
+    { id: 'skills', label: 'Skills', order: 2, visible: true },
+    { id: 'projects', label: 'Projects', order: 3, visible: true },
+    { id: 'experience', label: 'Experience', order: 4, visible: true },
+    { id: 'testimonials', label: 'Testimonials', order: 5, visible: true },
+    { id: 'contact', label: 'Contact', order: 6, visible: true },
+  ],
+  socials: [],
+  about: {
+    eyebrow: 'About',
+    heading: 'I turn interfaces into experiences you can feel.',
+    portraitImage: '/images/portrait.jpg',
+    intro: 'I am a creative developer who sits between design and engineering — shaping layout, motion and real-time 3D into websites that feel alive.',
+    bio: [
+      'My work focuses on frontend craft: clean component architecture, thoughtful motion and performance that holds up on everyday devices.',
+      'I enjoy projects where storytelling, typography and interaction come together, and I like prototyping ideas quickly so they can be judged by feel instead of by description.',
+    ],
+    details: [
+      { label: 'Role', value: 'Creative / Frontend Developer' },
+      { label: 'Location', value: 'India' },
+      { label: 'Focus', value: 'Motion, WebGL, UI engineering' },
+      { label: 'Status', value: 'Open to selected freelance work' },
+    ],
+    focus: [
+      { icon: 'Code2', title: 'Frontend', text: 'Component-driven React interfaces.' },
+      { icon: 'Sparkles', title: 'Motion', text: 'Timeline-based GSAP choreography.' },
+      { icon: 'Box', title: '3D Web', text: 'Real-time scenes with Three.js.' },
+      { icon: 'Palette', title: 'Design', text: 'Type, layout and visual systems.' },
+    ],
+    approach: [
+      'Start from the story, then choose the motion.',
+      'Performance and accessibility are part of the design.',
+      'Prototype early, refine with real interaction.',
+      'Keep content easy to edit and code easy to extend.',
+    ],
+  },
+  skillGroups: [
+    { id: 'frontend', icon: 'Code2', title: 'Frontend Development', skills: ['React', 'Vite', 'Tailwind CSS', 'HTML5', 'CSS3', 'Responsive UI'], order: 1 },
+    { id: 'languages', icon: 'Braces', title: 'Programming Languages', skills: ['JavaScript (ES6+)', 'HTML', 'CSS', 'JSON'], order: 2 },
+    { id: 'design', icon: 'Palette', title: 'UI/UX & Design', skills: ['Figma', 'Wireframing', 'Typography', 'Design Systems', 'Prototyping'], order: 3 },
+    { id: 'motion', icon: 'Sparkles', title: 'Animation & Creative Dev', skills: ['GSAP', 'ScrollTrigger', 'Draggable', 'Lenis', 'Swiper'], order: 4 },
+    { id: '3d', icon: 'Box', title: '3D Web Experiences', skills: ['Three.js', 'React Three Fiber', 'Drei', 'Shaders (learning)'], order: 5 },
+    { id: 'tools', icon: 'Wrench', title: 'Tools & Workflow', skills: ['Git', 'GitHub', 'npm', 'VS Code', 'Chrome DevTools'], order: 6 },
+  ],
+  projects: [],
+  featured: {
+    visible: false,
+    kicker: '', title: '', description: '', tech: [], image: '',
+    cover: { variant: 'orbit', palette: ['#C7FF4F', '#52E5FF', '#8B5CF6'] },
+    panels: [], link: { label: '', url: '' },
+  },
+  experience: [],
+  testimonials: [],
+  contactTypes: ['Website / Portfolio', 'Web App', '3D / WebGL Experience', 'Animation & Motion', 'Something else'],
+  footer: {
+    heading: "Let's build something meaningful.",
+    nextStepLabel: 'Next step',
+    copyrightText: 'All rights reserved.',
+    creditText: 'Designed & built with React, GSAP and Three.js.',
+  },
+};
