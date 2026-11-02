@@ -15,12 +15,13 @@ import Testimonials from './sections/Testimonials';
 import { usePortfolio } from './context/PortfolioContext';
 import AdminApp from './admin/AdminApp';
 import { useEffect } from 'react';
+import { isAdminPath } from './services/paths';
 
 function PublicPortfolio({ content, loading }) {
   useSmoothScroll();
 
   useEffect(() => {
-    if (window.location.pathname.startsWith('/admin') || !content.site.seoTitle) return;
+    if (isAdminPath() || !content.site.seoTitle) return;
     document.title = content.site.seoTitle;
     let description = document.querySelector('meta[name="description"]');
     if (!description) {
@@ -95,7 +96,7 @@ function PortfolioUnavailable({ loading, error, onRetry }) {
 
 export default function App() {
   const { content, loading, loadError, refreshPortfolio } = usePortfolio();
-  if (window.location.pathname.startsWith('/admin')) return <AdminApp />;
+  if (isAdminPath()) return <AdminApp />;
   if (!content) return <PortfolioUnavailable loading={loading} error={loadError} onRetry={refreshPortfolio} />;
   return <PublicPortfolio content={content} loading={loading} />;
 }

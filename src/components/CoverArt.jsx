@@ -1,4 +1,5 @@
 import { useId, useState } from 'react';
+import { withBasePath } from '../services/paths';
 
 /**
  * CoverArt component:
@@ -113,7 +114,7 @@ export default function CoverArt({
 }) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const [imgFailed, setImgFailed] = useState(false);
-  const imgSrc = src || image;
+  const imgSrc = withBasePath(src || image);
 
   if (imgSrc && !imgFailed) {
     return (

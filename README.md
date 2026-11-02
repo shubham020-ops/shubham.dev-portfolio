@@ -61,12 +61,12 @@ The application is powered by React, Vite, Three.js, GSAP, Node.js, Express, and
 
 **Content Policy:** Real professional experience, client projects, measurable results, and testimonial quotes are not automatically generated. Add only verified information to maintain the accuracy and credibility of your portfolio.
 
----
+
 
 ## 🛠️ Tech Stack
 
 | Category | Technologies |
-|---|---|
+|||
 | Frontend | React, Vite, JavaScript |
 | Styling | Tailwind CSS v4 |
 | Animations | GSAP |
@@ -272,147 +272,7 @@ Open another terminal in the project root:
 
 ```bash
 npm install
-npm run dev
-```
 
-Vite will display the local development URL.
-
-Usually:
-
-```text
-http://localhost:5173
-```
-
-or
-
-```text
-http://localhost:5174
-```
-
-### Application URLs
-
-| Application | URL |
-|---|---|
-| Public Website | http://localhost:5173 |
-| Backend Health | http://localhost:3001/api/v1/health |
-
-Use the actual Vite URL printed in your terminal if it selects another port.
-
-
-
----
-
-## 📊 Managing Portfolio Content
-
-The portfolio includes a dynamic Admin CMS.
-
-Open:
-
-
-
-Sign in using the credentials created during admin initialization.
-
-### Projects Management
-
-Navigate to the Projects section and select Add.
-
-Required fields:
-
-- `id` — Unique lowercase slug, such as `portfolio-site`.
-- `title` — Project name.
-- `category` — Project category.
-- `description` — Project description.
-- `tech` — Technology list.
-
-Optional fields:
-
-- `image`
-- Live website URL.
-- Repository URL.
-- Case study URL.
-
-After saving a project, enable its Published toggle to make it visible on the public website.
-
-### Experience Management
-
-Add your real professional experience or education information.
-
-Required fields:
-
-- `id`
-- `type`
-- `date`
-- `role`
-- `org`
-- `text`
-
-Published records appear in the mobile vertical timeline and desktop experience timeline.
-
-### Testimonials Management
-
-Add genuine testimonials containing:
-
-- Actual testimonial quote.
-- Person's name.
-- Role or professional context.
-- Rating.
-
-Only publish testimonials with the person's permission.
-
-### Other CMS Features
-
-The admin dashboard also supports:
-
-- Skills management.
-- Website content and SEO management.
-- Navigation customization.
-- Social media links.
-- Footer customization.
-- Contact form options.
-- Content publishing and ordering.
-
-**Image Management:** The current project does not include a dedicated image upload service. Use existing local assets inside `public/images/` or provide HTTPS image URLs.
-
----
-
-## 📩 Contact Form & Admin Inbox
-
-The contact form is integrated with the Express backend and MongoDB.
-
-### How It Works
-
-1. A visitor submits the contact form.
-2. The backend validates the submitted information.
-3. The message is saved to MongoDB.
-4. An email notification is attempted through Resend.
-5. The admin can view the submitted message in the Contact Inbox.
-
-Even if email delivery fails, the submitted message remains saved in MongoDB.
-
-### Admin Inbox Features
-
-- View submitted messages.
-- Check email notification status.
-- Retry failed email notifications.
-- Mark messages as read.
-- Archive and restore messages.
-- Permanently delete messages after confirmation.
-
-**Email Delivery Note:** A Resend `accepted` status means the provider accepted the request. It does not guarantee final inbox delivery.
-
-For delivery and bounce event tracking, configure the optional Resend webhook using:
-
-
-
-## 🚀 Production Build & Deployment
-
-The application supports a same-origin production deployment where one Node.js server serves both the frontend and backend API.
-
-### 1. Build the Frontend
-
-From the project root:
-
-```bash
 npm run build
 ```
 

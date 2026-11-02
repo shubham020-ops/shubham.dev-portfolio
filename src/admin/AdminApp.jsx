@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { apiRequest, getSession, login, logout, notifyPortfolioUpdated, setCsrfToken } from '../services/api';
 import { usePortfolio } from '../context/PortfolioContext';
+import { HOME_PATH } from '../services/paths';
 
 const sections = [
   { id: 'site', label: 'Hero & SEO', type: 'object', description: 'Hero heading, intro, call-to-action, contact email, and public SEO metadata.' },
@@ -60,7 +61,7 @@ function Login({ onLoggedIn, initialError = '' }) {
   return (
     <main className="min-h-screen bg-ink px-5 py-16 text-fg">
       <section className={`${cardClass} mx-auto max-w-md p-7 sm:p-10`}>
-        <a href="/" className="font-display text-xl font-extrabold">shubham<span className="text-lime">.dev</span></a>
+        <a href={HOME_PATH} className="font-display text-xl font-extrabold">shubham<span className="text-lime">.dev</span></a>
         <div className="mt-10 flex h-12 w-12 items-center justify-center rounded-full border border-line text-lime"><ShieldCheck size={22} /></div>
         <h1 className="display mt-6 text-4xl">Admin sign in</h1>
         <p className="mt-3 text-sm leading-relaxed text-muted">Sign in to update portfolio content and review contact messages.</p>
@@ -76,7 +77,7 @@ function Login({ onLoggedIn, initialError = '' }) {
             {busy ? <><Loader2 size={17} className="animate-spin" /> Signing in…</> : 'Sign in securely'}
           </button>
         </form>
-        <a href="/" className="mt-7 inline-flex items-center gap-2 text-sm text-muted transition hover:text-lime"><ArrowLeft size={16} /> Back to portfolio</a>
+        <a href={HOME_PATH} className="mt-7 inline-flex items-center gap-2 text-sm text-muted transition hover:text-lime"><ArrowLeft size={16} /> Back to portfolio</a>
       </section>
     </main>
   );
@@ -420,7 +421,7 @@ export default function AdminApp() {
   const section = sections.find((item) => item.id === active);
   return (
     <div className="min-h-screen bg-ink text-fg">
-      <header className="sticky top-0 z-40 border-b border-line bg-ink/90 backdrop-blur-xl"><div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-3 sm:px-6"><a href="/" className="font-display text-lg font-extrabold">shubham<span className="text-lime">.dev</span><span className="ml-3 hidden text-xs font-normal uppercase tracking-[0.2em] text-muted sm:inline">Admin</span></a><div className="flex items-center gap-3"><span className="hidden text-xs text-muted sm:inline">{admin.email}</span><button type="button" onClick={signOut} className="btn btn-ghost !px-3 !py-2"><LogOut size={16} /> Sign out</button></div></div></header>
+      <header className="sticky top-0 z-40 border-b border-line bg-ink/90 backdrop-blur-xl"><div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-3 sm:px-6"><a href={HOME_PATH} className="font-display text-lg font-extrabold">shubham<span className="text-lime">.dev</span><span className="ml-3 hidden text-xs font-normal uppercase tracking-[0.2em] text-muted sm:inline">Admin</span></a><div className="flex items-center gap-3"><span className="hidden text-xs text-muted sm:inline">{admin.email}</span><button type="button" onClick={signOut} className="btn btn-ghost !px-3 !py-2"><LogOut size={16} /> Sign out</button></div></div></header>
       <div className="mx-auto grid max-w-[1500px] gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[230px_minmax(0,1fr)] lg:py-8">
         <aside className={`${cardClass} h-fit p-2 lg:sticky lg:top-24`}><nav aria-label="Admin sections" className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-1">
           <button type="button" onClick={() => setActive('dashboard')} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-left text-sm ${active === 'dashboard' ? 'bg-lime text-ink' : 'text-muted hover:bg-ink hover:text-fg'}`}><LayoutDashboard size={17} /> Dashboard</button>
@@ -434,7 +435,7 @@ export default function AdminApp() {
           {section && <SectionEditor key={section.id} section={section} refreshPublic={refreshPortfolio} />}
           {active === 'messages' && <Messages refreshDashboard={refreshDashboard} />}
           {active === 'account' && <Account onPasswordChanged={() => { setAdmin(null); setActive('dashboard'); }} />}
-          <footer className="flex flex-wrap items-center justify-between gap-3 py-3 text-xs text-muted"><span>Portfolio CMS · changes save to MongoDB</span><a href="/" className="underline underline-offset-4 hover:text-lime">View public site</a></footer>
+          <footer className="flex flex-wrap items-center justify-between gap-3 py-3 text-xs text-muted"><span>Portfolio CMS · changes save to MongoDB</span><a href={HOME_PATH} className="underline underline-offset-4 hover:text-lime">View public site</a></footer>
         </main>
       </div>
     </div>

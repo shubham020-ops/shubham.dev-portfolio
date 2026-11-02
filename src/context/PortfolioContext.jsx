@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { apiRequest } from '../services/api';
 import { initialPortfolioContent } from '../data/portfolioData';
+import { isAdminPath } from '../services/paths';
 
 const copySeedContent = () => structuredClone(initialPortfolioContent);
 
@@ -65,7 +66,7 @@ export function PortfolioProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (window.location.pathname.startsWith('/admin')) {
+    if (isAdminPath()) {
       setLoading(false);
       return;
     }
