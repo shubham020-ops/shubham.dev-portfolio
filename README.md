@@ -61,6 +61,7 @@ The application is powered by React, Vite, Three.js, GSAP, Node.js, Express, and
 
 **Content Policy:** Real professional experience, client projects, measurable results, and testimonial quotes are not automatically generated. Add only verified information to maintain the accuracy and credibility of your portfolio.
 
+For the full-stack Hostinger setup, follow [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md).
 
 
 ## 🛠️ Tech Stack
@@ -140,14 +141,16 @@ cd shubham.dev-portfolio
 
 ### 3. Backend Environment Configuration
 
-Open PowerShell and navigate to the backend directory:
+Open PowerShell and navigate to the project root (`portfolio/`):
 
 ```powershell
-cd C:\Users\lenovo\Desktop\my-portfolio\portfolio\backend
+cd C:\Users\lenovo\Desktop\my-portfolio\portfolio
 
-if (-not (Test-Path .env)) {
-    Copy-Item .env.example .env
+if (-not (Test-Path backend\.env)) {
+    Copy-Item backend\.env.example backend\.env
 }
+
+npm install
 ```
 
 Open `backend/.env` and configure the following environment variables:
@@ -203,27 +206,11 @@ VITE_API_BASE_URL=
 
 ## 🗄️ Database & Admin Initialization
 
-Navigate to the backend folder:
+From the project root, install once and run the database setup scripts:
 
 ```powershell
-cd backend
-```
-
-Install dependencies:
-
-```bash
 npm install
-```
-
-Create the first admin account:
-
-```bash
 npm run create-admin
-```
-
-Initialize the database:
-
-```bash
 npm run seed
 ```
 
@@ -244,20 +231,12 @@ You can change your admin password later from the Account section of the dashboa
 
 ## 💻 Running the Project Locally
 
-You need two separate terminal windows for local development.
+You need two separate terminal windows for local development. Run both from the project root.
 
 ### Terminal 1 — Start Backend
 
-Navigate to the backend directory:
-
 ```bash
-cd backend
-```
-
-Start the development server:
-
-```bash
-npm run dev
+npm run backend:dev
 ```
 
 The backend API runs on:
@@ -280,17 +259,7 @@ This generates the production frontend inside the `dist/` directory.
 
 ### 2. Start the Production Server
 
-Navigate to the backend directory:
-
-```bash
-cd backend
-```
-
-Start the production server:
-
-```bash
-npm start
-```
+From the project root, run `npm start`. The root package starts the production backend, which serves the built frontend from `dist/` and the API through `/api/v1`.
 
 In production mode, the backend serves:
 
@@ -393,11 +362,11 @@ npm run build
 
 ### Backend Checks
 
-Run from the backend directory:
+Run from the project root:
 
 ```bash
-npm run check
-npm test
+npm run backend:check
+npm run backend:test
 ```
 
 ### MongoDB & API Health Check

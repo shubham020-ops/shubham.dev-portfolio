@@ -1,5 +1,10 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
 import { normalizeEmail } from '../utils/normalizeEmail.js';
+
+// Load the backend's own .env even when the server is started from the repo root.
+// Existing process environment values (such as Hostinger's dashboard settings) take precedence.
+dotenv.config({ path: fileURLToPath(new URL('../../.env', import.meta.url)) });
 
 const required = ['MONGODB_URI', 'JWT_SECRET'];
 for (const name of required) {

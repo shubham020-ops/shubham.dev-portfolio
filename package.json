@@ -9,7 +9,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node backend/src/startProduction.js",
+    "postinstall": "npm --prefix backend install --ignore-scripts",
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:check": "npm --prefix backend run check",
+    "backend:test": "npm --prefix backend test",
+    "seed": "npm --prefix backend run seed",
+    "create-admin": "npm --prefix backend run create-admin"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
